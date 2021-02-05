@@ -79,10 +79,12 @@ function babelify(js, modules) {
   let stream = js.pipe(babel(babelConfig)).pipe(
     through2.obj(function z(file, encoding, next) {
       this.push(file.clone());
-      if (file.path.match(/\/style\/index\.(js|jsx)$/)) {
+      if (file.path.match(/\\style\\index\.(js|jsx)$/)) {
+        //   if (file.path.match(/\/style\/index\.(js|jsx)$/)) {
         const content = file.contents.toString(encoding);
         file.contents = Buffer.from(
-          content.replace(/\/style\/?'/g, "/style/css'").replace(/\.less/g, '.css'),
+          content.replace(/\\style\\?'/g, "/style/css'").replace(/\.less/g, '.css'),
+          //   content.replace(/\/style\/?'/g, "/style/css'").replace(/\.less/g, '.css'),
         );
         file.path = file.path.replace(/index\.(js|jsx)$/, 'css.js');
         this.push(file);
@@ -111,8 +113,10 @@ function compile(modules) {
       through2.obj(function(file, encoding, next) {
         this.push(file.clone());
         if (
-          file.path.match(/\/style\/index\.less$/) ||
-          file.path.match(/\/style\/v2-compatible-reset\.less$/)
+          file.path.match(/\\style\\index\.less$/) ||
+          file.path.match(/\\style\\v2-compatible-reset\.less$/)
+          //   file.path.match(/\/style\/index\.less$/) ||
+          //   file.path.match(/\/style\/v2-compatible-reset\.less$/)
         ) {
           transformLess(file.path)
             .then(css => {
