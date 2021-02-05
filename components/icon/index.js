@@ -18,7 +18,7 @@ import Base from '../base';
 
 // Initial setting
 VueIcon.add(...Object.keys(allIcons).map(key => allIcons[key]));
-setTwoToneColor('#1890ff');
+setTwoToneColor('#456cfa');
 const defaultTheme = 'outlined';
 let dangerousTheme;
 

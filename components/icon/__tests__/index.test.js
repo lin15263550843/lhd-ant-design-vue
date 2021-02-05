@@ -61,8 +61,8 @@ describe('Icon', () => {
 
   it('should support config global two-tone primary color', () => {
     const colors = VueIcon.getTwoToneColors();
-    Icon.setTwoToneColor('#1890ff');
-    expect(Icon.getTwoToneColor()).toBe('#1890ff');
+    Icon.setTwoToneColor('#456cfa');
+    expect(Icon.getTwoToneColor()).toBe('#456cfa');
     const wrapper = mount({
       render() {
         return <Icon type="check-circle" theme="twoTone" />;

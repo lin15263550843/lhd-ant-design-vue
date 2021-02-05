@@ -42,7 +42,7 @@ export const sortGradient = gradients => {
  * Besides women, there is the code.
  */
 export const handleGradient = strokeColor => {
-  const { from = '#1890ff', to = '#1890ff', direction = 'to right', ...rest } = strokeColor;
+  const { from = '#456cfa', to = '#456cfa', direction = 'to right', ...rest } = strokeColor;
   if (Object.keys(rest).length !== 0) {
     const sortedGradients = sortGradient(rest);
     return { backgroundImage: `linear-gradient(${direction}, ${sortedGradients})` };
